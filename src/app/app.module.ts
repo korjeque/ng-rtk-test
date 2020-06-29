@@ -6,6 +6,9 @@ import {NotFoundComponent} from './components/not-found/not-found.component';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './app.routes';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDpiService} from './services/in-memory-dpi-service';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDpiService),
   ],
   providers: [],
   bootstrap: [AppComponent]
