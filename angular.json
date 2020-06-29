@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "rtk-demo"
+    }
+  },
+  "defaultProject": "rtk-demo",
+  "cli": {
+    "analytics": false
+  }
 }
