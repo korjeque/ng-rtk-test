@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DpiGridComponent } from './dpi-grid.component';
+import { EmployeeGridComponent } from './employee-grid.component';
 
-describe('DpiGridComponent', () => {
-  let component: DpiGridComponent;
-  let fixture: ComponentFixture<DpiGridComponent>;
+describe('EmployeeGridComponent', () => {
+  let component: EmployeeGridComponent;
+  let fixture: ComponentFixture<EmployeeGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DpiGridComponent ]
+      declarations: [ EmployeeGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DpiGridComponent);
+    fixture = TestBed.createComponent(EmployeeGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

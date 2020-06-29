@@ -8,21 +8,30 @@ import {appRoutes} from './app.routes';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {InMemoryDpiService} from './services/in-memory-dpi-service';
+import {InMemoryEmployeeService} from './services/in-memory-employee-service';
+import {NgxsModule} from '@ngxs/store';
+import {environment} from '../environments/environment';
+import {EmployeeService} from './services/employee.service';
+import {EmployeeState} from './store/employee/employee.state';
+// import { EmailWithInitialsPipe } from './pipes/email-with-initials.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
+
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     NoopAnimationsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDpiService),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryEmployeeService),
+    NgxsModule.forRoot([EmployeeState], {
+      developmentMode: !environment.production
+    })
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

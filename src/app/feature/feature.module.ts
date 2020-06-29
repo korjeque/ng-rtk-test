@@ -1,13 +1,22 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { DpiGridComponent } from './components/dpi/dpi-grid/dpi-grid.component';
-import { DialogDpiComponent } from './components/dpi/dialogs/dialog-dpi/dialog-dpi.component';
-
+import {ContainerComponent} from './components/container/container.component';
+import {EmployeeGridComponent} from './components/container/employee-grid/employee-grid.component';
+import {MatTableModule} from '@angular/material/table';
+import {RouterModule} from '@angular/router';
+import {featureRoutes} from './feature.routes';
+import {EmailWithInitialsPipe} from '../pipes/email-with-initials.pipe';
 
 @NgModule({
-  declarations: [DpiGridComponent, DialogDpiComponent],
+  declarations: [
+    ContainerComponent,
+    EmployeeGridComponent,
+    EmailWithInitialsPipe
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatTableModule,
+    RouterModule.forChild(featureRoutes),
   ]
 })
 export class FeatureModule {
