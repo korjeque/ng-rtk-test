@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import { DpiGridComponent } from './components/dpi/dpi-grid/dpi-grid.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [DpiGridComponent],
   imports: [
     CommonModule
   ]

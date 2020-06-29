@@ -7,10 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "component": {
-            "changeDetection": "OnPush"
-          }
+          "style": "scss"
         }
       },
       "root": "",
@@ -131,5 +128,10 @@
   "defaultProject": "rtk-demo",
   "cli": {
     "analytics": false
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "changeDetection": "OnPush"
+    }
   }
 }
