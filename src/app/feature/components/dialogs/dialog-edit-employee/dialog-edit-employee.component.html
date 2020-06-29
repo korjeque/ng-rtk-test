@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Edit Employee</h1>
+<div mat-dialog-content>
+  <form [formGroup]="employeeForm">
+    <div fxLayout="column" fxLayoutAlign="space-between">
+      <mat-form-field fxFlex  formGroupName="name">
+        <mat-label>First Name:</mat-label>
+        <input matInput formControlName="first" required>
+      </mat-form-field>
+
+      <mat-form-field fxFlex formGroupName="name">
+        <mat-label>Last Name:</mat-label>
+        <input matInput formControlName="last" required>
+      </mat-form-field>
+
+
+      <mat-form-field fxFlex>
+        <mat-label>Email:</mat-label>
+        <input matInput formControlName="email" required>
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <mat-label>Age:</mat-label>
+        <input matInput type="number" formControlName="age" required>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+  <div fxFlex="1 1 0"></div>
+  <div fxFlex="20">
+    <button class="mat-raised-button" (click)="close()">Close</button>
+  </div>
+  <div fxFlex="20">
+    <button class="mat-raised-button mat-primary" [disabled]="!employeeForm.valid" (click)="save()">Save</button>
+  </div>
+</div>
