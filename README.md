@@ -1,27 +1,55 @@
 # RtkDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+# Тестовое задание на должность Frontend Developer
 
-## Development server
+Необходимо разработать CRUD интерфейс для работы с базой сотрудников. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Обязательными являются следующие функции:
+  
+  - список людей
+  - создание
+  - редактирование
+  - удаление
+  - фильтрация списка (необязательно)
 
-## Code scaffolding
+Приложение должно прочитать базу один раз из файла **mates.json**. Ее содержимое можно положить, например, в глобальную переменную **window.db**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Список может выглядеть так
 
-## Build
+![List sample](sample_list.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+А форма создания так
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Create form sample](create_form.png)
 
-## Running end-to-end tests
+Приложение должно быть чисто frontend. Базу сохранять обратно в файл не нужно.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+При создании записи форма должна валидироваться.
 
-## Further help
+Данные и примеры отображения во вложенном архиве frontend-task.zip.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ 
+
+Большим плюсом будет добавить еще несколько колонок в список:
+
+Колонка аватар, в ячейке которой всегда должна отображаться картинка user.png, приложенная в архиве
+Колонка агрегатор, в которой должны быть инициалы пользователя и его почта
+(
+     например для пользователя :
+{
+    "guid": "69827b93-1b7a-4475-9b27-5caffdf5257e",
+
+    "age": 37,
+
+    "name": {
+
+      "first": "Whitney",
+
+      "last": "Pope"
+
+    },
+
+    "email": "whitney.pope@undefined.net"
+  }
+В ячейке должно получится: W.P. - whitney.pope@undefined.net)
