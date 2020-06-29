@@ -8,18 +8,18 @@ import {featureRoutes} from './feature.routes';
 import {EmailWithInitialsPipe} from '../pipes/email-with-initials.pipe';
 import {MatButtonModule} from '@angular/material/button';
 import {FlexModule} from '@angular/flex-layout';
-import { DialogEditEmployeeComponent } from './components/dialogs/dialog-edit-employee/dialog-edit-employee.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { DialogEditCreateEmployeeComponent } from './components/dialogs/dialog-edit-create-employee/dialog-edit-create-employee.component';
 
 @NgModule({
   declarations: [
     ContainerComponent,
     EmployeeGridComponent,
     EmailWithInitialsPipe,
-    DialogEditEmployeeComponent
+    DialogEditCreateEmployeeComponent
   ],
   imports: [
     CommonModule,

@@ -2,8 +2,8 @@ import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
 import {Store} from '@ngxs/store';
 import {Employee} from '../../../../models/employee';
 import {MatDialog} from '@angular/material/dialog';
-import {DialogEditEmployeeComponent} from '../../dialogs/dialog-edit-employee/dialog-edit-employee.component';
 import {EmployeeActionDeleteItem} from '../../../../store/employee/employee.actions';
+import {DialogEditCreateEmployeeComponent} from '../../dialogs/dialog-edit-create-employee/dialog-edit-create-employee.component';
 
 @Component({
   selector: 'app-employee-grid',
@@ -14,7 +14,7 @@ import {EmployeeActionDeleteItem} from '../../../../store/employee/employee.acti
 export class EmployeeGridComponent implements OnInit {
   @Input() readonly employees: Employee[];
   displayedColumns = [
-    'guid',
+    'index',
     'first',
     'last',
     'age',
@@ -32,7 +32,7 @@ export class EmployeeGridComponent implements OnInit {
   }
 
   editEmployee(employee: Employee): void {
-    this.dialog.open(DialogEditEmployeeComponent, {
+    this.dialog.open(DialogEditCreateEmployeeComponent, {
       height: '400px',
       width: '600px',
       data: {
@@ -43,6 +43,13 @@ export class EmployeeGridComponent implements OnInit {
 
   deleteEmployee(id: string): void {
     this.store.dispatch(new EmployeeActionDeleteItem({id}));
+  }
+
+  createEmployee(): void {
+    this.dialog.open(DialogEditCreateEmployeeComponent, {
+      height: '400px',
+      width: '600px',
+    });
   }
 
 }

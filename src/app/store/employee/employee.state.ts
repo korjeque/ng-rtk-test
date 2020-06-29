@@ -1,11 +1,11 @@
 import {State, Action, StateContext, Selector} from '@ngxs/store';
-import {EmployeeActionDeleteItem, EmployeeActionGetItems, EmployeeActionUpdateItem} from './employee.actions';
+import {EmployeeActionCreateItem, EmployeeActionDeleteItem, EmployeeActionGetItems, EmployeeActionUpdateItem} from './employee.actions';
 import {Injectable} from '@angular/core';
 import {EmployeeService} from '../../services/employee.service';
 import {Employee} from '../../models/employee';
 import {EMPTY, Observable, of} from 'rxjs';
 import {tap} from 'rxjs/operators';
-import {patch, updateItem} from '@ngxs/store/operators';
+import {insertItem, patch, updateItem} from '@ngxs/store/operators';
 
 export interface EmployeeStateModel {
   employees: Employee[];
@@ -40,6 +40,9 @@ export class EmployeeState {
           ctx.patchState({employees});
         }));
   }
+
+
+
 
   @Action(EmployeeActionDeleteItem)
   public delete(ctx: StateContext<EmployeeStateModel>,
@@ -80,6 +83,19 @@ export class EmployeeState {
     //       })
     //     );
     //   }));
+  }
+
+  @Action(EmployeeActionCreateItem)
+  public createItem(ctx: StateContext<EmployeeStateModel>,
+                    {payload}: EmployeeActionCreateItem
+  ): Observable<Employee> {
+    const employee: Employee = {guid: 'some-guid', ...payload.data};
+    ctx.setState(
+      patch({
+        employees: insertItem(employee)
+      })
+    );
+    return of(employee);
   }
 
 }
